@@ -62,13 +62,13 @@ If the user said "just go", use the defaults.
 Read each role file before running that role. Each role writes its own short section.
 Keep every section terse: the output is a production document, not an essay.
 
-1. **Director** → `roles/director.md` — logline, intent, beat sheet with timings, the hook.
-2. **Production designer** → `roles/production-designer.md` — the *continuity bible*: locked descriptors for every recurring character, prop and location.
-3. **Director of photography** → `roles/dp.md` — per shot: size, lens, angle, height, ONE camera move.
-4. **Gaffer** → `roles/gaffer.md` — time of day, key direction, color temperature, practicals, contrast.
-5. **Editor** → `roles/editor.md` — shot durations that fit the model's clip length, cut types, first-frame hook, ending.
-6. **Sound** → `roles/sound.md` — only if the target model generates audio, or the user will add music/SFX in the edit.
-7. **Script supervisor** → `roles/script-supervisor.md` — continuity + feasibility + "unslop" pass. Has veto power: any shot it flags gets rewritten before output.
+1. **Director** → `references/roles/director.md` — logline, intent, beat sheet with timings, the hook.
+2. **Production designer** → `references/roles/production-designer.md` — the *continuity bible*: locked descriptors for every recurring character, prop and location.
+3. **Director of photography** → `references/roles/dp.md` — per shot: size, lens, angle, height, ONE camera move.
+4. **Gaffer** → `references/roles/gaffer.md` — time of day, key direction, color temperature, practicals, contrast.
+5. **Editor** → `references/roles/editor.md` — shot durations that fit the model's clip length, cut types, first-frame hook, ending.
+6. **Sound** → `references/roles/sound.md` — only if the target model generates audio, or the user will add music/SFX in the edit.
+7. **Script supervisor** → `references/roles/script-supervisor.md` — continuity + feasibility + "unslop" pass. Has veto power: any shot it flags gets rewritten before output.
 
 ### 2. Write the prompts
 
@@ -94,7 +94,7 @@ Rules that apply to every model:
 
 ### 3. Output
 
-Write `SHOT_LIST.md` using `templates/shot-list.md`. If the user is working in a repo
+Write `SHOT_LIST.md` using `references/templates/shot-list.md`. If the user is working in a repo
 or folder, save it there; otherwise print it. Include:
 - the crew sections (short),
 - the shot table,
@@ -105,7 +105,7 @@ End with one line telling the user which shot is highest-risk and why.
 
 ## Fix mode
 
-1. Read `roles/script-supervisor.md` and `references/unslop.md`.
+1. Read `references/roles/script-supervisor.md` and `references/unslop.md`.
 2. Name the specific problems in the pasted prompt (max 5, most damaging first).
 3. Rewrite it using the Plan-mode prompt order. If it contains two actions, split it into two shots and say so.
 4. Show before → after. Keep the user's intent; change the mechanics.
@@ -115,6 +115,13 @@ End with one line telling the user which shot is highest-risk and why.
 Read `references/reroll-review.md`. Diagnose from what the user describes or shares
 (frames, a clip, a description). Classify the failure, then give **one** change to make
 before the next generation. Changing five things at once means you learn nothing from the reroll.
+
+## Limitations
+
+- It plans, diagnoses, and rewrites prompts; it does not generate, edit, or render video.
+- Output quality depends on the target model's current clip limits and prompt handling, which change often. Check the model's own docs before trusting an adapter's defaults.
+- Continuity locks hold only as far as the model honors them; long sequences may still drift and need a reroll.
+- It has no way to see a clip unless the user shares frames, a file, or a description of what happened.
 
 ## Tone
 
