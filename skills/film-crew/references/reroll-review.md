@@ -36,11 +36,11 @@ KEEP: lens, light, seed policy
 
 ## A worked example
 
-The repo's `assets/ten-rerolls.png` shows ten generations of one prompt:
+The upstream [ai-film-crew repository](https://github.com/HEOJUNFO/ai-film-crew) shows ten generations of one prompt in its `assets/ten-rerolls.png`:
 *"A barista bumps a customer's elbow and a paper coffee cup slips and spills onto the café
 floor next to white sneakers, slow motion, handheld close-up, warm morning light."*
 
 Across ten rerolls the cup falls, rolls, or lands upright. The spill (the whole point)
 barely happens. Diagnosis: **two things fighting** (the bump and the spill share one shot)
-plus **ignored action** (the spill is the last clause). The crew fix is in
+plus **ignored action** (the spill is the last clause). The crew fix is in the upstream repository's
 `examples/coffee-spill-15s/SHOT_LIST.md`.
